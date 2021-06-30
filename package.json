@@ -1,0 +1,21 @@
+{
+  "name": "siri",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "github:discordjs/discord.js",
+    "keyv": "^4.0.3",
+    "moment": "^2.29.1"
+  },
+  "devDependencies": {
+    "ascii-table": "^0.0.9",
+    "ms": "^2.1.3"
+  }
+}
