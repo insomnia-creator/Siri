@@ -11,8 +11,6 @@ const client = new Discord.Client({
 //initiate the client
 
 client.commands = new Discord.Collection();
-client.aliases = new Discord.Collection();
-client.categories = require('fs').readdirSync('./src/commands');
 //declare the various command and alias variables
 
 require(`./handlers/event`)(client);
