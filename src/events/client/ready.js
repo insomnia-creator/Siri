@@ -96,6 +96,24 @@ module.exports = (client) => {
                 }
             ]
         }).catch(e => console.log(e));
+        guild.commands.create({
+            name: "unmute",
+            description: "Unmute a muted person.",
+            options: [
+                {
+                    name: "user",
+                    description: "The user to un-mute.",
+                    type: Options.USER,
+                    required: true
+                },
+                {
+                    name: "reason",
+                    description: "Reason for un-muting the user.",
+                    type: Options.STRING,
+                    required: false
+                }
+            ]
+        }).catch(e => console.log(e));
 
 
 
