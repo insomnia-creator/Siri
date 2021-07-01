@@ -16,6 +16,16 @@ Object.freeze(Options);
 
 module.exports = (client) => {
     console.log('mac');
+    client.user.setPresence({
+        activities: [
+            {
+                name: "Hey there Windows 11!",
+                url: 'https://www.youtube.com/watch?v=Uh9643c2P6k',
+                type: "STREAMING"
+            }
+        ],
+        status: "idle"
+    });
     client.guilds.cache.forEach(guild => {
 
 
@@ -42,6 +52,11 @@ module.exports = (client) => {
                     required: false
                 }
             ]
+        }).catch(e => console.log(e));
+
+        guild.commands.create({
+            name: "ping",
+            description: "Check the bot's ping!"
         }).catch(e => console.log(e));
 
         guild.commands.create({
@@ -81,6 +96,8 @@ module.exports = (client) => {
                 }
             ]
         }).catch(e => console.log(e));
+
+
 
 
 
