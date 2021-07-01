@@ -3,18 +3,18 @@ module.exports = {
     run: async(interaction, keyv, ms, Discord, client, moment, fs) => {
 
         if(!interaction.member.roles.cache.some(r => r.name === "Moderator")){
-            return interaction.reply("You need to be a moderator to do so!", {ephemeral: true});
+            await interaction.reply("You need to be a moderator to do so.", {ephemeral: true});
+            return;
         }
         //haha u no admin idot123
+        console.log(interaction);
 
-
-        const guytokick = interaction.options[0].value;
+        const guytokick = interaction.options.find(op => op.name === "user");
         //get the guy to kick
-
-        const memberObject = interaction.guild.members.cache.get(guytokick);
+        const memberObject = interaction.guild.members.cache.get(guytokick.value);
         //member object
 
-        let reason = interaction.options[1];
+        let reason = interaction.options.find(opt => opt.name === "reason");
 
         await memberObject.user.send(`Hey there, ${memberObject.user.username}, you have kicked from ${interaction.guild.name} ${reason ? `for '${reason.value}'` : "."}`).catch(e => {
             console.log(e);
@@ -30,7 +30,7 @@ module.exports = {
         });
 
         //keeeeeeek
-        interaction.reply({
+        await interaction.reply({
             embeds: [
                 {
                     title: "User has been kicked",
