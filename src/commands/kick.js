@@ -2,7 +2,7 @@ module.exports = {
     name: "kick",
     run: async(interaction, keyv, ms, Discord, client, moment, fs) => {
 
-        if(!interaction.member.roles.some(r => r.name === "Moderator")){
+        if(!interaction.member.roles.cache.some(r => r.name === "Moderator")){
             return interaction.reply("You need to be a moderator to do so!", {ephemeral: true});
         }
         //haha u no admin idot123
