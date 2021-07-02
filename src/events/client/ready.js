@@ -9,13 +9,22 @@ const Options  = {
         ROLE: 8,
         MENTIONABLE: 9,
 }
+
 //define it as an object
 
 Object.freeze(Options);
+//haha u cant change it anymore amonnnggguusuus
 //everyone loves enumerators!
 
+
 module.exports = (client) => {
-    console.log('mac');
+    console.log(`
+    Client currently logged in as: ${client.user.tag}
+    Client ID: ${client.user.id}
+    Servers currently in ${client.guilds.cache.map(guild => {return `${guild.name}, `})}
+    Gonna give you up! Gonna let you down! Gonna run around andddd desert you!`)
+
+
     client.user.setPresence({
         activities: [
             {

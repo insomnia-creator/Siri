@@ -19,7 +19,31 @@ const keyvRedis = new KeyvRedis(redis);
 client.keyv = new Keyv({
     store: keyvRedis
 });
-client.keyv.on('error', err => console.log(err));
+
+//database tests
+
+const test = async() => {
+    const fetchTest = await client.keyv.get("test");
+    if(!fetchTest){
+        await client.keyv.set("test", "Database first run!");
+    } else {
+        await client.keyv.set("test", "OK");
+    }
+
+    const fetchTest2 = await client.keyv.get("test");
+    console.log(`Database response and status: \n ${fetchTest2}`);
+
+}
+
+test();
+
+
+//errrrrrrr
+client.keyv.on('error', err => {
+    console.log("An error occured in the database.")
+    throw err;
+
+});
 
 client.commands = new Discord.Collection();
 //declare the various command and alias variables

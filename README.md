@@ -61,3 +61,5 @@ So just in case your power goes out or something happens(my dog ate my server).
 This will create a backup just in case, so you can resume good.
 
 You can go on with your day by running ``npm start``
+
+dude pixel read this pls.
