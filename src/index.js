@@ -10,6 +10,17 @@ const client = new Discord.Client({
 });
 //initiate the client
 
+//database goes here
+const Redis = require('ioredis');
+const KeyvRedis = require('@keyv/redis');
+const Keyv = require('keyv');
+const redis = new Redis();
+const keyvRedis = new KeyvRedis(redis);
+client.keyv = new Keyv({
+    store: keyvRedis
+});
+client.keyv.on('error', err => console.log(err));
+
 client.commands = new Discord.Collection();
 //declare the various command and alias variables
 
@@ -19,3 +30,4 @@ require(`./handlers/command`)(client);
 
 client.login(require('./config.json').token).catch(e => console.log(e));
 //login
+

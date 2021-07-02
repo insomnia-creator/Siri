@@ -7,7 +7,6 @@ module.exports = {
             return;
         }
         //haha u no admin idot123
-        console.log(interaction);
 
         const guytokick = interaction.options.find(op => op.name === "user");
         //get the guy to kick

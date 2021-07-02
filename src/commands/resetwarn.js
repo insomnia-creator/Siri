@@ -1,5 +1,5 @@
 module.exports = {
-    name: "unmute",
+    name: "resetwarns",
     run: async(interaction, keyv, ms, Discord, client, moment, fs) => {
         if(!interaction.member.roles.cache.some(r => r.name === "Moderator")){
             await interaction.reply("You need to be a moderator to do so.", {ephemeral: true});
@@ -8,29 +8,23 @@ module.exports = {
 
 
         const guytounmute = interaction.options.find(op => op.name === "user");
-        //get the guy to among us unmute!
+        //get the guy to uhhh reset warns!!
         const memberObject = interaction.guild.members.cache.get(guytounmute.value);
         //member object
 
         const reason = interaction.options.find(opt => opt.name === "reason");
 
-        //rrzzzz
-        if(!memberObject.roles.cache.some(r => r.name === "Muted")){
-            return await interaction.reply("That user isn't even muted!", {ephemeral: true});
-        }
-        //hahaa
-        const role = interaction.guild.roles.cache.find(r => r.name === "Muted");
-        //bbbbbbb
-        if(!role){
-            return await interaction.reply("There isn't any Muted role.", {ephemeral: true});
-        }
-        //role not there/ !!111!
-        memberObject.roles.remove(role, `Mod- ${interaction.member.user.tag}`).catch(e => console.log(e));
-//remove
+        //rezzzon
+
+        await keyv.set(`${interaction.guild.id}.${memberObject.id}.warnings`, 0);
+        /*
+        ONLY 0.0000000000000000000000000000000000000000000000000000000000000000001% OF ALL LIVING THINGS
+        CAN RUN THE RESET WARN COMMAND!
+         */
         await interaction.reply({
             embeds: [
                 {
-                    title: "User has been un-muted",
+                    title: "User's warns have been reset",
                     fields: [
                         {
                             name: "Moderator",
@@ -43,11 +37,7 @@ module.exports = {
                     ]
                 }
             ]
-
         });
-
-
-
 
     }
 }

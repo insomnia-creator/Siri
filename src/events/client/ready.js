@@ -115,6 +115,57 @@ module.exports = (client) => {
             ]
         }).catch(e => console.log(e));
 
+        guild.commands.create({
+            name: "warn",
+            description: "Warn a user.",
+            options: [
+                {
+                    name: "user",
+                    description: "The user to warn.",
+                    type: Options.USER,
+                    required: true
+                },
+                {
+                    name: "reason",
+                    description: "Reason for warning the user.",
+                    type: Options.STRING,
+                    required: false
+                }
+            ]
+        }).catch(e => console.log(e));
+
+        guild.commands.create({
+            name: "resetwarns",
+            description: "Reset the warnings for user.",
+            options: [
+                {
+                    name: "user",
+                    description: "The user to reset the warns for.",
+                    type: Options.USER,
+                    required: true
+                },
+                {
+                    name: "reason",
+                    description: "Reason for resetting warns.",
+                    type: Options.STRING,
+                    required: false
+                }
+            ]
+        }).catch(e => console.log(e));
+
+        guild.commands.create({
+            name: "fetchwarns",
+            description: "Fetch the warnings for a user.",
+            options: [
+                {
+                    name: "user",
+                    description: "The user to fetch warnings for.",
+                    type: Options.USER,
+                    required: false
+                }
+            ]
+        });
+
 
 
 

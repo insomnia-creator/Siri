@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@keyv/redis": "^2.1.2",
     "discord.js": "github:discordjs/discord.js",
+    "ioredis": "^4.27.6",
     "keyv": "^4.0.3",
     "moment": "^2.29.1"
   },

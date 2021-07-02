@@ -1,16 +1,15 @@
 const Discord = require("discord.js");
-const Keyv = require("keyv");
-const keyv = new Keyv();
 const timeout = new Set();
 const ms = require("ms");
 const moment = require("moment");
 const fs = require("fs");
 //declarations
 
-keyv.on('error', err => console.log(err));
 //handle the errors given by keyv
-
 module.exports = async(client, interaction) => {
+
+    const keyv = client.keyv;
+    //quick fix, i know my code is unorganised, pixel do something!!!!111!!1
 
     if (!interaction.isCommand()) return;
 
