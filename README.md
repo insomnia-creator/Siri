@@ -1,3 +1,4 @@
+
 For the MacOSicons Discord server.
 
 # Building yourself
@@ -51,6 +52,8 @@ This is cool.
 Now in the Redis-CLI run these 2 commands:
 
 ``SAVE`` and ``BG SAVE``.
+
+<img width="274" alt="Screenshot 2021-07-02 at 10 10 22 AM" src="https://user-images.githubusercontent.com/69950985/124221601-b741a800-db1d-11eb-923f-3a015d1ba369.png">
 
 You'll get a response saying OK. This means that now it's making backups in the background.
 
