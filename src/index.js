@@ -2,7 +2,7 @@
 const Discord = require('discord.js');
 //require the discord.js module
 const client = new Discord.Client({
-    intents: Discord.Intents.ALL,
+    intents: 32767,
     allowedMentions: {
         repliedUser: false
     },
