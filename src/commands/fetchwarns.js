@@ -8,7 +8,7 @@ module.exports = {
 
 
         if(!guytounmute){
-            const warnings = await keyv.get(`${interaction.guild.id}.${guytounmute.value}.warnings`);
+            const warnings = await keyv.get(`${interaction.guild.id}.${interaction.member.id}.warnings`);
 
             //get the warnings from keyv
             await interaction.reply({
