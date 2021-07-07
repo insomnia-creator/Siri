@@ -9,7 +9,7 @@ module.exports = {
                     fields: [
                         {
                             name: "Client Latency",
-                            value: `Returned in **$${Date.now() - message.createdTimestamp} ms**.`
+                            value: `Returned in **$${Date.now() - interaction.createdTimestamp} ms**.`
                         },
                         {
                             name: "API Latency",
