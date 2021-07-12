@@ -164,7 +164,7 @@ module.exports = (client) => {
 
         guild.commands.create({
             name: "fetchwarns",
-            description: "Fetch the warnings for a user.",
+            description: "Fetch the warnings for yourself or a person.",
             options: [
                 {
                     name: "user",
@@ -174,6 +174,45 @@ module.exports = (client) => {
                 }
             ]
         });
+
+        guild.commands.create({
+            name: "calculate",
+            description: "Your in-house calculator.",
+            options: [
+                {
+                    name: "equation",
+                    description: "Equation, Eg: 2 feet to cm",
+                    type: Options.STRING,
+                    required: true
+                },
+            ]
+        }).catch(e => console.log(e));
+
+        guild.commands.create({
+            name: 'poll',
+            description: "Start a yes, no poll",
+            options: [
+                {
+                    name: "topic",
+                    description: "The topic of your poll.",
+                    type: Options.STRING,
+                    required: true
+                }
+            ]
+        }).catch(e => console.log(e));
+
+        guild.commands.create({
+            name: "purge",
+            description: "Purge the specified amount of messages",
+            options: [
+                {
+                    name: "messages",
+                    description: "The amount of messages to delete.",
+                    type: Options.INTEGER,
+                    required: true
+                }
+            ]
+        }).catch(e => console.log(e));
 
 
 

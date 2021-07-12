@@ -23,8 +23,12 @@ module.exports = {
             return;
         } else {
 
+
             if(!interaction.member.roles.cache.some(r => r.name === "Moderator")){
-                await interaction.reply("You need to be a moderator to do so.", {ephemeral: true});
+                await interaction.reply({
+                    content: "You need to be a moderator to do so.",
+                    ephemeral: true
+                });
                 return;
             }
             //if you want to, create a PR to fix the variables lol

@@ -12,7 +12,6 @@ module.exports = async(client, interaction) => {
     //quick fix, i know my code is unorganised, pixel do something!!!!111!!1
 
     if (!interaction.isCommand()) return;
-
     if (!client.commands.has(interaction.commandName)) return;
     try {
         if (client.commands.get(interaction.commandName).timeout) {

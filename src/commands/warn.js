@@ -2,8 +2,12 @@ module.exports = {
     name: "warn",
     run: async(interaction, keyv, ms, Discord, client, moment, fs) => {
 
+
         if(!interaction.member.roles.cache.some(r => r.name === "Moderator")){
-            await interaction.reply("You need to be a moderator to do so.", {ephemeral: true});
+            await interaction.reply({
+                content: "You need to be a moderator to do so.",
+                ephemeral: true
+            });
             return;
         }
 
