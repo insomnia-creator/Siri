@@ -214,6 +214,44 @@ module.exports = (client) => {
             ]
         }).catch(e => console.log(e));
 
+        guild.commands.create({
+            name: "addrole",
+            description: "Add a role to a user.",
+            options: [
+                {
+                    name: "role",
+                    description: "The role to add the user.",
+                    type: Options.ROLE,
+                    required: true
+                },
+                {
+                    name: "member",
+                    description: "The member to add the role to.",
+                    type: Options.USER,
+                    required: true
+                }
+            ]
+        }).catch(e => console.log(e));
+
+        guild.commands.create({
+            name: "removerole",
+            description: "Remove a role from a user.",
+            options: [
+                {
+                    name: "role",
+                    description: "The role to remove from the user.",
+                    type: Options.ROLE,
+                    required: true
+                },
+                {
+                    name: "member",
+                    description: "The member to remove the role from.",
+                    type: Options.USER,
+                    required: true
+                }
+            ]
+        }).catch(e => console.log(e));
+
 
 
 

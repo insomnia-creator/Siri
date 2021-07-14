@@ -34,7 +34,6 @@ const test = async() => {
     console.log(`Database response and status: \n ${fetchTest2}`);
 
 }
-
 test();
 
 
