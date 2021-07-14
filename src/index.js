@@ -54,3 +54,4 @@ require(`./handlers/command`)(client);
 client.login(require('./config.json').token).catch(e => console.log(e));
 //login
 
+//what ok

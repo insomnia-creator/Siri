@@ -18,7 +18,12 @@ module.exports = {
                 content: "You cannot assign roles to yourself!",
                 ephemeral: true
             });
-            return;
+           return;
+           //ok cool we can live collaborate now nice.
+            //Type something here - pixel- uhh pixel? i can use the browser lol. pixelllll stop. Cant you use the vscode? well i am tryingri
+            //comments pls
+            //ok we cool
+            //imma make a new event.
         }
         if(memberObj.roles.cache.some(r => r.id === role.id)){
             await interaction.reply({
