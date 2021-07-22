@@ -77,7 +77,15 @@ module.exports = {
         } else {
             //but if no time
             await memberObject.user.send(`You were muted in ${interaction.guild.name} ${reason ? `for ${reason.value}` : "."} \n You will be un-muted in ${time} minutes.`);
+
             //so you are amongused, soz to tell u
+            const ids = [];
+            await memberObject.roles.cache.forEach(role => {
+                ids.push(role.id.toString());
+            });
+            await   memberObject.roles.set([]);
+            await keyv.set(`roles_${memberObject.id}`, ids);
+            //set his roles :)
             await memberObject.roles.add(role, `Mute, Mod - ${interaction.member.user.tag}`);
             //i add role u shut
 
