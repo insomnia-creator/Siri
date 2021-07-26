@@ -37,7 +37,7 @@ module.exports = {
         await interaction.reply({
             embeds: [
                 {
-                    title: "User has been banned",
+                    title: `${memberObject.user.tag} has been banned`,
                     fields: [
                         {
                             name: "Moderator",

@@ -173,7 +173,7 @@ module.exports = (client) => {
                     required: false
                 }
             ]
-        });
+        }).catch(e => console.log(e));
 
         guild.commands.create({
             name: "calculate",
@@ -187,6 +187,19 @@ module.exports = (client) => {
                 },
             ]
         }).catch(e => console.log(e));
+        guild.commands.create({
+            name: "rank",
+            description: "Check your or someone's rank",
+            options: [
+                {
+                    name: "user",
+                    description: "The user to check the rank for",
+                    type: Options.STRING,
+                    required: false
+                },
+            ]
+
+        }).catch(e => console.log(e));
 
         guild.commands.create({
             name: 'poll',
@@ -199,6 +212,10 @@ module.exports = (client) => {
                     required: true
                 }
             ]
+        }).catch(e => console.log(e));
+        guild.commands.create({
+            name: "leaderboard",
+            description: "Leaderboard of all the people who have the highest rank."
         }).catch(e => console.log(e));
 
         guild.commands.create({

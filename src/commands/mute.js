@@ -83,7 +83,7 @@ module.exports = {
             await memberObject.roles.cache.forEach(role => {
                 ids.push(role.id.toString());
             });
-            await   memberObject.roles.set([]);
+            await memberObject.roles.set([]);
             await keyv.set(`roles_${memberObject.id}`, ids);
             //set his roles :)
             await memberObject.roles.add(role, `Mute, Mod - ${interaction.member.user.tag}`);
