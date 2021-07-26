@@ -26,7 +26,7 @@ module.exports = {
         //omg i copy from kickkk???? omgm omgmgmgmgmgmgmgmgmgmgmggmgm among ussssss!!!!!!
 
         memberObject.ban(reason ? reason.value : null).catch(e => {
-            interaction.reply({
+            await interaction.reply({
                 content: "There was an error. This might be because that user is higher up on the roles list or has better permissions.",
                 ephemeral: true
             });
