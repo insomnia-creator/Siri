@@ -61,6 +61,8 @@ const checkRankUser = async(message, keyv) => {
     if(rankNow >= toNextRank){
         //check if user's message has gone beyond the target
         rankNum = rankNum + 1;
+        const channel = message.guild.channels.find(ch => ch.name.toLowerCase().includes('levels'));
+        channel.send(`${message.author.tag} has reached level ${rankNum}.`);
         await keyv.set(`toNextRank_${message.guild.id}_${message.author.id}`, rankNum * 300);
         await keyv.set(`rank_${message.author.id}_${message.guild.id}`, rankNum);
         //reset the progress

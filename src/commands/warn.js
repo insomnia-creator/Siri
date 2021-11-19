@@ -36,9 +36,9 @@ module.exports = {
         CAN RUN THE WARN COMMAND!
          */
         const roles = [
-            await interaction.guild.roles.cache.find(r => r.name === "green-card"),
-            await interaction.guild.roles.cache.find(r => r.name === "yellow-card"),
-            await interaction.guild.roles.cache.find(r => r.name === "red-card")
+            null, //there used to be a green card role once upon a time, I don't have the energy to refactor
+            await interaction.guild.roles.cache.find(r => r.name === "Yellow-card"),
+            await interaction.guild.roles.cache.find(r => r.name === "Red-card")
         ];
         //get all the red-card yellow card roles n stuff.
 
@@ -88,14 +88,14 @@ module.exports = {
             setTimeout(() => {
                 member.unban(member.user);
             }, (1000 * 60 * 60 * 60 * 24 * 7));
-            //might be effective but anyways, SEE YA DUDE!
+            //might be ineffective but anyways, SEE YA DUDE!
         } else if(warningsNow > 5){
             member.ban().catch(e => console.log(e));
         }
         await interaction.reply({
             embeds: [
                 {
-                    title: "User has been warned!",
+                    title: `${member.user.tag} has warned!`,
                     description: warningslol ? `They now have ${warningslol + 1} warnings.` : "1 warning.",
                     fields: [
                         {

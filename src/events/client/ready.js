@@ -27,7 +27,24 @@ module.exports = (client) => {
     client.user.setActivity("macOS Monterey made me look ugly.")
     client.guilds.cache.forEach(guild => {
 
-
+        guild.commands.create({
+            name: "archive",
+            description: "Archives a channel.",
+            options: [
+                {
+                    name: "channel",
+                    description: "The channel to archive.",
+                    type: Options.CHANNEL,
+                    required: true
+                },
+                {
+                    name: "reason",
+                    description: "The reason to archive said channel.",
+                    type: Options.STRING,
+                    required: false
+                }
+            ]
+        }).catch(e => console.log(e));
         guild.commands.create({
             name: "mute",
             description: "Mute a user! This will prevent them from talking.",

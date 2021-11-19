@@ -6,7 +6,7 @@ module.exports = {
         await interaction.reply({
             embeds: [
                 {
-                    title: `Siri ${info.version}`,
+                    title: `Siri v${info.version}`,
                     fields: [
                         {
                             name: "discord.js",
