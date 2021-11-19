@@ -1,8 +1,8 @@
 
 For the MacOSicons Discord server.
 
-# Major Release 1.5
-Hello world, it is I, the only collaborator of this Program. I have come with news to please you.
+# Major Release 2
+Hello world, it is I, the only collaborator of this Program. I have come with news to please you. I have updated Siri by doing absolutely nothing but wasting time and including a narcissist command :)
 
 ---
 MAJOR RELEASE BABY! Now you can enjoy the *not perfect* filters and ranking system!

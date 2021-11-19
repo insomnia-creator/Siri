@@ -41,7 +41,7 @@ module.exports = {
         if(time){
 
             //so if time
-            await memberObject.user.send(`You were muted in ${interaction.guild.name} ${reason ? `for ${reason.value}` : "."} \n You will be un-muted in ${time.value} minutes.`);
+            await memberObject.user.send(`You were muted in ${interaction.guild.name} ${reason ? `for ${reason.value}` : "."} \n You will be un-muted in ${time.value} minutes.`).catch(e => console.log(e));
             //so you are amongused, soz to tell u
             await memberObject.roles.add(role, `Mute, Mod - ${interaction.member.user.tag}`);
             //i add role u shut

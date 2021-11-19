@@ -1,6 +1,6 @@
 {
   "name": "siri",
-  "version": "1.5",
+  "version": "2",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -10,15 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@keyv/redis": "^2.1.2",
+    "@keyv/redis": "^2.2.0",
     "discord.js": "github:discordjs/discord.js",
-    "ioredis": "^4.27.6",
-    "keyv": "^4.0.3",
+    "ioredis": "^4.28.0",
+    "keyv": "^4.0.4",
     "moment": "^2.29.1"
   },
   "devDependencies": {
     "ascii-table": "^0.0.9",
-    "mathjs": "^9.4.3",
+    "mathjs": "^10.0.0",
     "ms": "^2.1.3"
   }
 }

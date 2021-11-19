@@ -2,12 +2,12 @@ const Options  = {
     SUB_COMMAND: 1,
     SUB_COMMAND_GROUP: 2,
     STRING: 3,
-        INTEGER: 4,
-        BOOLEAN: 5,
-        USER: 6,
-        CHANNEL: 7,
-        ROLE: 8,
-        MENTIONABLE: 9,
+    INTEGER: 4,
+    BOOLEAN: 5,
+    USER: 6,
+    CHANNEL: 7,
+    ROLE: 8,
+    MENTIONABLE: 9,
 }
 
 //define it as an object
@@ -24,17 +24,7 @@ module.exports = (client) => {
     Servers currently in ${client.guilds.cache.map(guild => {return `${guild.name}, `})}
     Gonna give you up! Gonna let you down! Gonna run around andddd desert you!`)
 
-
-    client.user.setPresence({
-        activities: [
-            {
-                name: "Hey there Windows 11!",
-                url: 'https://www.youtube.com/watch?v=Uh9643c2P6k',
-                type: "STREAMING"
-            }
-        ],
-        status: "idle"
-    });
+    client.user.setActivity("macOS Monterey made me look ugly.")
     client.guilds.cache.forEach(guild => {
 
 
@@ -95,7 +85,13 @@ module.exports = (client) => {
                     name: "user",
                     description: "The user to Ban.",
                     type: Options.USER,
-                    required: true
+                    required: false
+                },
+                {
+                    name: "id",
+                    description: "The ID of the user to Ban.",
+                    type: Options.INTEGER,
+                    required: false,
                 },
                 {
                     name: "reason",
@@ -267,6 +263,10 @@ module.exports = (client) => {
                     required: true
                 }
             ]
+        }).catch(e => console.log(e));
+        guild.commands.create({
+            name: "about",
+            description: "About Siri."
         }).catch(e => console.log(e));
 
 

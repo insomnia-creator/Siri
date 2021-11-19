@@ -10,9 +10,47 @@ module.exports = {
             return;
         }
         //haha u no admin xddddddddddd
-        console.log(interaction);
-
         const guytoban = interaction.options.find(op => op.name === "user");
+        const guytobanIDedition = interaction.options.find(op => op.name === 'id');
+
+        if(!guytoban || !guytobanIDedition){
+            await interaction.reply({
+                content: "stop fooling around and give the id or user smh",
+                ephemeral: true,
+            })
+        }
+
+        if(guytobanIDedition && !guytoban){
+            let dude;
+            //OMG CANT U SJUT OPTUT IT NEAR AWAIT OMG IM FREAKING OUT
+            //HAHA I TRIGGER U HAHA HAHAHHAHAHHAHA
+            await interaction.guild.bans.create(guytobanIDedition).then(guy => dude = guy).catch(async e => {
+                console.log(e);
+                await interaction.reply({
+                    content: "The ID does not exist.",
+                    ephemeral: true
+                });
+                //😳
+                return;
+            })
+            await interaction.reply({
+                embeds: [
+                    {
+                        title: `${dude} has been banned`,
+                        fields: [
+                            {
+                                name: "Moderator",
+                                value: interaction.member.user.tag
+                            },
+                            {
+                                name: "Reason",
+                                value: reason ? reason.value : "Unspecified"
+                            }
+                        ]
+                    }
+                ]
+            });
+        }
         //get the guy to among us
         const memberObject = interaction.guild.members.cache.get(guytoban.value);
         //member object

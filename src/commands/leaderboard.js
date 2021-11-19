@@ -5,9 +5,9 @@ module.exports = {
         //steal from keyv
         if(!leaderboard){return ['what', false]};
 
-        const Sorted = leaderboard.sort((a, b) => b.level - a.level && b.progress - a.progress);
+        let Sorted = leaderboard.sort((a, b) => b.level - a.level && b.progress - a.progress);
         //sort n stuff you know from rank.js
-        if(Sorted.length > 10) Sorted.slice(0, 10);
+        if(Sorted.length > 10) Sorted = Sorted.slice(0, 10);
         //Slice it
 
 

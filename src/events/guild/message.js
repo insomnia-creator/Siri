@@ -20,7 +20,6 @@ const checkIfMessageIsCaps = (msg) => {
     //So in most sentences it should result in a normal comparision above 0.5.
 
     if (comparison >= 0.5) {
-        msg.delete();
         return true;
     }
 }
@@ -43,7 +42,7 @@ const checkRankUser = async(message, keyv) => {
     }
     //so if the rank isn't there, let's just fix by setting the value of the rankProgress key.
 
-    const rankNow = rankGet + (Math.round((message.content.length / 3)));
+    const rankNow = rankGet + (Math.round((message.content.length) / 2));
     //so we're going to do some simple maths.
     let rankNum = await keyv.get(`rank_${message.author.id}_${message.guild.id}`);
     //get the rank number
@@ -65,7 +64,7 @@ const checkRankUser = async(message, keyv) => {
         await keyv.set(`toNextRank_${message.guild.id}_${message.author.id}`, rankNum * 300);
         await keyv.set(`rank_${message.author.id}_${message.guild.id}`, rankNum);
         //reset the progress
-        await keyv.set(`rankProgress_${message.author.id}_${message.guild.id}`, (rankNow - toNextRank));
+        await keyv.set(`rankProgress_${message.author.id}_${message.guild.id}`, (toNextRank - rankNum));
     }
     //else just go on.
 
@@ -114,7 +113,7 @@ const checkRankUser = async(message, keyv) => {
 module.exports = async(client, message) => {
     //here we add the thing.
 
-
+ 
 
     //so now we have access to the message object and the client object.
 
@@ -124,6 +123,7 @@ module.exports = async(client, message) => {
     //check message caps
     const res = await checkIfMessageIsCaps(message);
     if(res === true){
+        message.delete();
         return;
     }
     //so if it is indeed a caps message, why spend your life giving the guy free xp and stuff.

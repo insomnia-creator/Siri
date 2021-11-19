@@ -31,10 +31,14 @@ module.exports = {
         //role not there/ !!111!
         memberObject.roles.remove(role, `Mod- ${interaction.member.user.tag}`).catch(e => console.log(e));
        const roles =  await keyv.get(`roles_${memberObject.id}`);
-       roles.forEach(role => {
+       
+       if(roles) {
+               roles.forEach(role => {
            const role1 = interaction.guild.roles.cache.get(role);
            memberObject.roles.add(role1);
        });
+               }
+       
 //remove
         await interaction.reply({
             embeds: [

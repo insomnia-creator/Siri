@@ -69,6 +69,7 @@ module.exports = {
 
             Oversimplified: The Regex Check
              */
+            //note after 3 months: what the heck is this i do not understand?
             const rank = await keyv.get(`rankProgress_${guy.value}_${interaction.guild.id}`);
             const rankProgress = await keyv.get(`rank_${guy.value}_${interaction.guild.id}`);
             const toNExtRank = await keyv.get(`toNextRank_${interaction.guild.id}_${guy.value}`);
@@ -88,7 +89,7 @@ module.exports = {
             await interaction.reply({
                 embeds: [
                     {
-                        title: `${client.users.cache.get(guy.value).tag} rank`,
+                        title: `${interaction.guild.members.cache.get(guy.value).user.tag}'s rank`,
                         fields: [
                             {
                                 name: "Progress through this rank",

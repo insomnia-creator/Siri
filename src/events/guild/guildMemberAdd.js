@@ -1,5 +1,3 @@
-
-
 module.exports = async(client, member) => {
     const checkMemberJoinNumber = async() => {
 
@@ -28,7 +26,8 @@ module.exports = async(client, member) => {
     }
 
 
-    const channel = member.guild.systemChannel || member.guild.channels.cache.find(ch => ch.name.includes("general"));
+    const channel = member.guild.channels.cache.find(ch => ch.name.includes("general"));
+    //change it from system default channel or something balahaidsadhusadhi1jdsaodsaodj12o3 covidididdi
 
     //chanle
     channel.send(`Hey there, ${member.user.tag}, welcome to macosicons.com! You're the ${await checkMemberJoinNumber()} member to join`).catch(e => console.log(e));
